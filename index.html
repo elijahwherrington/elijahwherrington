@@ -3,24 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elijah Wherrington</title>
+<title>Elijah Herrington</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-a: #06010f;
-    --bg-b: #170a3d;
-    --bg-c: #062a3f;
-    --panel: #120f2c;
-    --panel-2: #191340;
-    --cyan: #00f0ff;
-    --violet: #a259ff;
-    --green: #39ff14;
-    --chrome: #eef3ff;
-    --text: #cfe3f5;
-    --border-lt: rgba(255,255,255,0.35);
-    --border-dk: rgba(0,0,0,0.7);
+    --bg: #EEF1F7;
+    --panel: #FFFFFF;
+    --ink: #12213D;
+    --blue: #1D3FD6;
+    --blue-dark: #14238A;
+    --orange: #FF5A1F;
+    --teal: #0AA6A6;
+    --purple: #7A4DFF;
+    --line: #10121A;
+    --bevel-hi: #FFFFFF;
+    --bevel-lo: #93A0B8;
   }
 
   * { box-sizing: border-box; }
@@ -28,44 +27,19 @@
 
   body {
     margin: 0;
-    color: var(--text);
+    color: var(--ink);
     font-family: Verdana, Geneva, sans-serif;
     font-size: 15px;
     line-height: 1.7;
     background:
-      radial-gradient(circle at 20% 0%, rgba(0,240,255,0.10), transparent 45%),
-      radial-gradient(circle at 85% 15%, rgba(162,89,255,0.14), transparent 40%),
-      linear-gradient(155deg, var(--bg-a), var(--bg-b) 45%, var(--bg-c) 100%);
-    background-attachment: fixed;
-    position: relative;
+      radial-gradient(circle at 90% 0%, rgba(122,77,255,0.10), transparent 40%),
+      radial-gradient(circle at 5% 15%, rgba(10,166,166,0.10), transparent 40%),
+      var(--bg);
   }
 
-  /* scanline + grid overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0.06;
-    background-image: repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 3px);
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.10;
-    background-image:
-      linear-gradient(rgba(0,240,255,0.5) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,240,255,0.5) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  a { color: var(--cyan); }
+  a { color: var(--blue); }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-    outline: 3px dashed var(--cyan);
+    outline: 3px dashed var(--orange);
     outline-offset: 3px;
   }
 
@@ -76,16 +50,14 @@
   /* ---------- marquee ---------- */
   .marquee {
     background: #000;
-    color: var(--green);
+    color: #39FF14;
     font-family: 'VT323', monospace;
     font-size: 1.4rem;
     letter-spacing: 0.05em;
     overflow: hidden;
     white-space: nowrap;
     padding: 6px 0;
-    border-bottom: 2px solid var(--cyan);
-    position: relative;
-    z-index: 2;
+    border-bottom: 3px solid var(--blue);
   }
   .marquee span {
     display: inline-block;
@@ -100,33 +72,72 @@
   /* ---------- masthead ---------- */
   header.masthead {
     text-align: center;
-    padding: 3.5rem 1rem 2rem;
-    position: relative;
-    z-index: 2;
+    padding: 3rem 1rem 1.5rem;
   }
+
+  .collage-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  .sphere {
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sphere.s1 {
+    width: 46px; height: 46px;
+    background: radial-gradient(circle at 32% 28%, #ffffff, var(--purple) 42%, #3a1f80 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+  .sphere.s2 {
+    width: 30px; height: 30px;
+    background: radial-gradient(circle at 32% 28%, #ffffff, var(--teal) 45%, #04514f 100%);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  }
+  .globe-deco { width: 74px; height: 74px; }
+  .star-deco { width: 44px; height: 44px; }
+
   h1.title {
     font-family: 'Orbitron', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.4rem, 8vw, 5rem);
+    font-size: clamp(2.2rem, 7.5vw, 4.4rem);
     line-height: 1.05;
     margin: 0;
-    letter-spacing: 0.04em;
-    background: linear-gradient(180deg, #ffffff 0%, var(--cyan) 55%, var(--violet) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(0 0 14px rgba(0,240,255,0.45));
+    letter-spacing: 0.02em;
+    color: var(--blue-dark);
+    text-shadow: 3px 3px 0 rgba(122,77,255,0.35);
   }
   .tagline {
     font-family: 'VT323', monospace;
     font-size: 1.3rem;
-    letter-spacing: 0.04em;
-    color: var(--cyan);
-    margin-top: 0.6rem;
+    letter-spacing: 0.03em;
+    color: var(--teal);
+    margin-top: 0.5rem;
   }
+
+  .tag-strip {
+    display: inline-flex;
+    margin-top: 1rem;
+    border: 2px solid var(--line);
+    background: var(--panel);
+    box-shadow: 3px 3px 0 var(--line);
+  }
+  .tag-strip span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-right: 1px solid #ccc;
+    color: var(--ink);
+  }
+  .tag-strip span:last-child { border-right: none; }
+
   .badge-construction {
     display: inline-block;
-    margin-top: 1.1rem;
+    margin-top: 1rem;
     font-family: 'VT323', monospace;
     font-size: 1rem;
     letter-spacing: 0.1em;
@@ -138,90 +149,89 @@
   }
   @keyframes blink { 50% { opacity: 0.4; } }
 
-  /* ---------- nav ---------- */
+  /* ---------- nav (beveled buttons) ---------- */
   nav.tabs {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0 1rem 2rem;
-    position: relative;
-    z-index: 2;
+    gap: 0.6rem;
+    padding: 1.5rem 1rem 2rem;
   }
-  nav.tabs a {
+  .bevel-btn {
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
     text-decoration: none;
     text-transform: uppercase;
-    color: var(--chrome);
-    background: linear-gradient(180deg, #2c2470, #120f2c);
-    border-top: 1px solid var(--border-lt);
-    border-left: 1px solid var(--border-lt);
-    border-right: 1px solid var(--border-dk);
-    border-bottom: 1px solid var(--border-dk);
-    padding: 8px 16px;
-    border-radius: 3px;
+    color: var(--ink);
+    background: linear-gradient(180deg, #F6F8FC, #C9D3E9);
+    border-top: 2px solid var(--bevel-hi);
+    border-left: 2px solid var(--bevel-hi);
+    border-right: 2px solid var(--bevel-lo);
+    border-bottom: 2px solid var(--bevel-lo);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    padding: 8px 14px;
+    cursor: pointer;
   }
-  nav.tabs a:hover { background: linear-gradient(180deg, #3d2f9c, #1a1550); color: var(--cyan); }
+  .bevel-btn:hover { background: linear-gradient(180deg, #ffffff, #dbe4f5); }
+  .bevel-btn:active, .bevel-btn.pressed {
+    border-top-color: var(--bevel-lo);
+    border-left-color: var(--bevel-lo);
+    border-right-color: var(--bevel-hi);
+    border-bottom-color: var(--bevel-hi);
+    box-shadow: none;
+    transform: translate(1px, 1px);
+  }
 
   /* ---------- layout ---------- */
   main {
     max-width: 780px;
     margin: 0 auto;
     padding: 1rem 1.25rem 4rem;
-    position: relative;
-    z-index: 2;
   }
 
   section.card {
     background: var(--panel);
-    border-top: 1px solid var(--border-lt);
-    border-left: 1px solid var(--border-lt);
-    border-right: 1px solid var(--border-dk);
-    border-bottom: 1px solid var(--border-dk);
-    box-shadow: 0 0 24px rgba(0,240,255,0.08), 0 8px 20px rgba(0,0,0,0.5);
+    border: 2px solid var(--line);
+    box-shadow: 5px 5px 0 var(--line);
     margin-bottom: 3rem;
     scroll-margin-top: 1rem;
-    border-radius: 4px;
-    overflow: hidden;
   }
 
   .titlebar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(90deg, #1c1550, #2f1e6e 60%, #123554);
+    background: linear-gradient(180deg, #3E6BFF, var(--blue-dark));
     padding: 7px 12px;
-    border-bottom: 1px solid var(--border-dk);
+    border-bottom: 2px solid var(--line);
   }
   .titlebar .label {
     font-family: 'VT323', monospace;
     font-size: 1.1rem;
     letter-spacing: 0.1em;
-    color: var(--chrome);
+    color: #fff;
   }
   .titlebar .dots { display: flex; gap: 5px; }
   .titlebar .dots span {
-    width: 9px; height: 9px; border-radius: 50%;
+    width: 10px; height: 10px;
     display: inline-block;
-    background: var(--violet);
-    box-shadow: 0 0 6px rgba(162,89,255,0.8);
+    background: #fff;
   }
-  .titlebar .dots span:nth-child(2) { background: var(--cyan); box-shadow: 0 0 6px rgba(0,240,255,0.8); }
-  .titlebar .dots span:nth-child(3) { background: var(--green); box-shadow: 0 0 6px rgba(57,255,20,0.8); }
+  .titlebar .dots span:nth-child(2) { background: var(--orange); }
+  .titlebar .dots span:nth-child(3) { background: #39FF14; }
 
   .card-body { padding: 1.75rem; }
 
   h2.section-title {
     font-family: 'Orbitron', sans-serif;
     font-weight: 800;
-    font-size: 1.5rem;
-    letter-spacing: 0.03em;
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
     margin: 0 0 1rem;
-    color: var(--chrome);
-    border-bottom: 2px solid var(--cyan);
+    color: var(--blue-dark);
+    border-bottom: 3px solid var(--orange);
     display: inline-block;
     padding-bottom: 4px;
   }
@@ -233,101 +243,128 @@
     gap: 1.5rem;
     align-items: start;
   }
-  .photo-placeholder {
+  .photo-box {
     width: 140px;
     height: 140px;
-    background: repeating-linear-gradient(135deg, #1c1550, #1c1550 8px, #0e0a28 8px, #0e0a28 16px);
-    border: 1px solid var(--border-lt);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'VT323', monospace;
-    color: var(--cyan);
-    text-align: center;
-    padding: 0.5rem;
+    border: 2px solid var(--line);
+    box-shadow: 4px 4px 0 var(--line);
+    overflow: hidden;
+  }
+  .photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 35%;
+    display: block;
   }
   @media (max-width: 480px) {
     .about-grid { grid-template-columns: 1fr; }
-    .photo-placeholder { margin: 0 auto; }
+    .photo-box { margin: 0 auto; }
   }
-  .location-line { font-family: 'VT323', monospace; color: var(--green); font-size: 1.1rem; margin-top: 0.5rem; }
+  .location-line { font-family: 'VT323', monospace; color: var(--teal); font-size: 1.15rem; margin-top: 0.5rem; }
+  .edu-line { font-family: 'Space Mono', monospace; font-size: 0.8rem; opacity: 0.7; margin-top: 0.75rem; }
+  .todo-inline { font-family: 'VT323', monospace; color: var(--orange); }
 
   /* skills stickers */
   .sticker-sheet { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .sticker {
     font-family: 'VT323', monospace;
     font-size: 1.05rem;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border-lt);
-    background: linear-gradient(180deg, #241c5c, #150f38);
-    color: var(--chrome);
+    padding: 5px 12px;
+    border: 2px solid var(--line);
+    background: #F2F5FA;
+    color: var(--ink);
   }
-  .sticker.done { background: linear-gradient(180deg, #1f5c2a, #0e2b14); color: var(--green); border-color: rgba(57,255,20,0.5); }
-  .sticker.progress { background: linear-gradient(180deg, #145a63, #0a2d33); color: var(--cyan); border-color: rgba(0,240,255,0.5); }
-  .sticker-key { font-family: 'VT323', monospace; font-size: 0.95rem; margin-top: 0.85rem; opacity: 0.75; }
+  .sticker.done { background: #E4FBF2; border-color: var(--teal); color: #056b5a; }
+  .sticker.progress { background: #FFF1E8; border-color: var(--orange); color: #a03c0f; }
+  .sticker-key { font-family: 'VT323', monospace; font-size: 0.95rem; margin-top: 0.9rem; opacity: 0.7; }
 
-  /* projects */
+  /* index cards (projects / travels / hobbies) */
   .index-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--border-lt);
-    border-left: 3px solid var(--cyan);
+    background: #F8FAFD;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--blue);
     padding: 1rem 1.1rem;
     margin-bottom: 1rem;
-    border-radius: 3px;
   }
   .index-card:last-child { margin-bottom: 0; }
   .index-card h3 {
     margin: 0 0 0.4rem;
     font-family: 'Orbitron', sans-serif;
     font-size: 1.05rem;
-    color: var(--chrome);
+    color: var(--blue-dark);
   }
-  .todo-note { font-family: 'VT323', monospace; color: var(--cyan); font-size: 1.15rem; }
+  .todo-note { font-family: 'VT323', monospace; color: var(--orange); font-size: 1.15rem; }
+  .photo-strip {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .photo-slot {
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+    font-size: 0.75rem;
+    color: var(--orange);
+    text-align: center;
+    background: #fff;
+  }
 
   /* guestbook */
   .guestbook-form { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
   .guestbook-form input, .guestbook-form textarea {
     font-family: 'Space Mono', monospace;
-    background: #050313;
-    color: var(--green);
-    border: 1px solid var(--border-lt);
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--line);
     padding: 0.55rem;
     font-size: 0.95rem;
-    border-radius: 3px;
   }
-  .guestbook-form input::placeholder, .guestbook-form textarea::placeholder { color: rgba(57,255,20,0.4); }
+  .guestbook-form input::placeholder, .guestbook-form textarea::placeholder { color: #9aa3b5; }
   .stamp-btn {
     align-self: flex-start;
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
     font-size: 0.85rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    background: linear-gradient(180deg, #00c2d1, #0a5a63);
-    color: #01131a;
-    border: 1px solid var(--border-lt);
+    background: linear-gradient(180deg, #4779FF, var(--blue-dark));
+    color: #fff;
+    border-top: 2px solid #9db4ff;
+    border-left: 2px solid #9db4ff;
+    border-right: 2px solid #0c1a5c;
+    border-bottom: 2px solid #0c1a5c;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
     padding: 8px 18px;
     cursor: pointer;
-    border-radius: 3px;
   }
-  .stamp-btn:hover { background: linear-gradient(180deg, #00f0ff, #0a5a63); }
-  .stamp-btn:active { filter: brightness(0.85); }
+  .stamp-btn:hover { filter: brightness(1.08); }
+  .stamp-btn:active {
+    border-top-color: #0c1a5c;
+    border-left-color: #0c1a5c;
+    border-right-color: #9db4ff;
+    border-bottom-color: #9db4ff;
+    box-shadow: none;
+    transform: translate(1px, 1px);
+  }
 
   .guestbook-entries { display: flex; flex-direction: column; gap: 0.75rem; }
   .entry {
-    border: 1px solid var(--border-lt);
-    border-left: 3px solid var(--violet);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--purple);
     padding: 0.6rem 0.8rem;
-    background: rgba(255,255,255,0.02);
+    background: #F8FAFD;
     font-size: 0.9rem;
-    border-radius: 3px;
   }
-  .entry .name { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--cyan); letter-spacing: 0.03em; }
+  .entry .name { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--blue); letter-spacing: 0.02em; }
   .entry .msg-time { opacity: 0.55; font-size: 0.75rem; font-family: 'Space Mono', monospace; }
   .storage-note { font-family: 'Space Mono', monospace; font-size: 0.75rem; opacity: 0.6; margin-top: 0.75rem; }
 
-  /* odometer */
+  /* odometer (kept as a contrasting embedded LCD widget) */
   .counter-wrap {
     display: flex;
     align-items: center;
@@ -340,36 +377,32 @@
     gap: 3px;
     background: #000;
     padding: 8px 10px;
-    border: 1px solid var(--border-lt);
-    border-radius: 3px;
+    border: 2px solid var(--line);
   }
   .odometer .digit {
     font-family: 'VT323', monospace;
     font-size: 2rem;
     background: #050505;
-    color: var(--green);
+    color: #39FF14;
     text-shadow: 0 0 8px rgba(57,255,20,0.7);
     width: 1.1em;
     text-align: center;
     padding: 2px 0;
   }
-  .counter-label { font-family: 'VT323', monospace; font-size: 1.15rem; color: var(--chrome); }
+  .counter-label { font-family: 'VT323', monospace; font-size: 1.15rem; color: var(--ink); }
 
   footer {
     text-align: center;
     padding: 2rem 1rem 3rem;
     font-family: 'VT323', monospace;
     font-size: 1rem;
-    color: var(--text);
-    opacity: 0.8;
-    position: relative;
-    z-index: 2;
+    color: var(--ink);
+    opacity: 0.75;
   }
   .footer-badges { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
   .footer-badges span {
-    border: 1px solid var(--border-lt);
+    border: 1px solid var(--ink);
     padding: 2px 8px;
-    border-radius: 3px;
   }
 </style>
 </head>
@@ -378,16 +411,46 @@
 <div class="marquee"><span>welcome to my page !!! &nbsp; est. 2026 &nbsp; &mdash; &nbsp; thanks for stopping by, sign the guestbook before you go &nbsp; &mdash; &nbsp; best viewed with an open mind &nbsp; &mdash; &nbsp; </span></div>
 
 <header class="masthead">
-  <h1 class="title">ELIJAH<br>WHERRINGTON</h1>
+  <div class="collage-row">
+    <span class="sphere s2" aria-hidden="true"></span>
+    <svg class="star-deco" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="starGrad" cx="35%" cy="30%" r="75%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="45%" stop-color="#7A4DFF"/>
+          <stop offset="100%" stop-color="#3a1f80"/>
+        </radialGradient>
+      </defs>
+      <polygon points="50,4 61,38 97,38 68,59 79,94 50,73 21,94 32,59 3,38 39,38" fill="url(#starGrad)"/>
+    </svg>
+    <svg class="globe-deco" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="#1D3FD6" stroke-width="1.6"/>
+      <ellipse cx="50" cy="50" rx="42" ry="16" fill="none" stroke="#1D3FD6" stroke-width="1.2"/>
+      <ellipse cx="50" cy="50" rx="42" ry="30" fill="none" stroke="#1D3FD6" stroke-width="1.2"/>
+      <line x1="8" y1="50" x2="92" y2="50" stroke="#1D3FD6" stroke-width="1.2"/>
+      <line x1="50" y1="8" x2="50" y2="92" stroke="#1D3FD6" stroke-width="1.2"/>
+      <ellipse cx="50" cy="50" rx="16" ry="42" fill="none" stroke="#FF5A1F" stroke-width="1.2"/>
+      <ellipse cx="50" cy="50" rx="30" ry="42" fill="none" stroke="#FF5A1F" stroke-width="1.2"/>
+    </svg>
+    <span class="sphere s1" aria-hidden="true"></span>
+  </div>
+  <h1 class="title">ELIJAH<br>HERRINGTON</h1>
   <p class="tagline">&gt; marketing ops &amp; revops _ making tech behave</p>
+  <div class="tag-strip">
+    <span>revops toolkit</span>
+    <span>marketing tech</span>
+    <span>omaha, ne</span>
+  </div><br>
   <div class="badge-construction">⚠ under construction ⚠</div>
 </header>
 
 <nav class="tabs">
-  <a href="#about">about</a>
-  <a href="#skills">skills</a>
-  <a href="#projects">projects</a>
-  <a href="#guestbook">guestbook</a>
+  <a class="bevel-btn" href="#about">about</a>
+  <a class="bevel-btn" href="#skills">skills</a>
+  <a class="bevel-btn" href="#projects">projects</a>
+  <a class="bevel-btn" href="#travels">travels</a>
+  <a class="bevel-btn" href="#hobbies">hobbies</a>
+  <a class="bevel-btn" href="#guestbook">guestbook</a>
 </nav>
 
 <main>
@@ -398,10 +461,11 @@
     <div class="card-body">
       <h2 class="section-title">about me</h2>
       <div class="about-grid">
-        <div class="photo-placeholder">[ photo ]</div>
+        <div class="photo-box"><img src="elijah-photo.jpg" alt="Elijah Herrington"></div>
         <div>
-          <p><!-- TODO: replace with real bio copy --> Hi, I'm Elijah. I work in Marketing Operations &amp; RevOps at Walker Sands, a B2B marketing and PR agency working with fintech and cybersecurity clients. I live in the systems most people never see &mdash; HubSpot, Salesforce, Marketo, Eloqua &mdash; making sure leads go where they're supposed to and reports don't lie.</p>
+          <p><!-- TODO: confirm current employer + refine copy once updated resume arrives --> I'm Elijah &mdash; I work in Marketing Operations &amp; RevOps, building data-driven campaigns and scaling marketing systems that bridge revenue growth, retention, and operational efficiency. I live in the systems most people never see: CRM integrations, attribution models, and marketing tech stacks that keep sales and marketing teams actually in sync. <span class="todo-inline">[current employer: TBD &mdash; Walker Sands or Signal?]</span></p>
           <p class="location-line">&gt; location: Omaha, NE</p>
+          <p class="edu-line">M.S. Curriculum &amp; Instructional Leadership + B.S. English Composition, Wayne State College</p>
         </div>
       </div>
     </div>
@@ -417,11 +481,15 @@
         <span class="sticker">Salesforce</span>
         <span class="sticker">Marketo</span>
         <span class="sticker">Eloqua</span>
+        <span class="sticker">Google / Meta Ads</span>
+        <span class="sticker">Looker Studio / Power BI</span>
+        <span class="sticker">Figma</span>
+        <span class="sticker">Azure / Power Apps</span>
         <span class="sticker progress">HubSpot Marketing Hub Cert &mdash; in progress</span>
         <span class="sticker progress">GA4 Cert &mdash; in progress</span>
         <span class="sticker done">HubSpot RevOps Cert</span>
       </div>
-      <p class="sticker-key">green = earned &nbsp;&nbsp; cyan = in progress</p>
+      <p class="sticker-key">teal = earned &nbsp;&nbsp; orange = in progress</p>
     </div>
   </section>
 
@@ -437,6 +505,48 @@
       <div class="index-card">
         <h3>[ project title ]</h3>
         <p class="todo-note">&gt; same here &mdash; a RevOps tool, a workflow, a migration, whatever you're proud of</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAVELS -->
+  <section class="card" id="travels">
+    <div class="titlebar"><span class="label">TRAVELS.MAP</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">travels</h2>
+      <div class="index-card">
+        <h3>[ country / place ]</h3>
+        <p class="todo-note">&gt; drop your notes and photos here &mdash; what it was like, what stuck with you</p>
+        <div class="photo-strip">
+          <div class="photo-slot">photo</div>
+          <div class="photo-slot">photo</div>
+          <div class="photo-slot">photo</div>
+        </div>
+      </div>
+      <div class="index-card">
+        <h3>[ country / place ]</h3>
+        <p class="todo-note">&gt; another one whenever you're ready</p>
+        <div class="photo-strip">
+          <div class="photo-slot">photo</div>
+          <div class="photo-slot">photo</div>
+          <div class="photo-slot">photo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section class="card" id="hobbies">
+    <div class="titlebar"><span class="label">HOBBIES.LOG</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">hobbies</h2>
+      <div class="index-card">
+        <h3>[ hobby ]</h3>
+        <p class="todo-note">&gt; what it is, how long you've done it, why you're into it</p>
+      </div>
+      <div class="index-card">
+        <h3>[ hobby ]</h3>
+        <p class="todo-note">&gt; keep going &mdash; add as many as you want</p>
       </div>
     </div>
   </section>
@@ -475,7 +585,7 @@
 </main>
 
 <footer>
-  <div>&copy; 2026 elijah wherrington &mdash; made by hand, mostly</div>
+  <div>&copy; 2026 elijah herrington &mdash; made by hand, mostly</div>
   <div class="footer-badges">
     <span>best viewed at any resolution, honestly</span>
     <span><a href="#about">back to top ↑</a></span>
