@@ -1,5 +1,584 @@
 <!DOCTYPE html>
-<html>
-<head><title>Elijah's Site</title></head>
-<body><h1>Coming soon</h1></body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elijah Wherrington</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-a: #06010f;
+    --bg-b: #170a3d;
+    --bg-c: #062a3f;
+    --panel: #120f2c;
+    --panel-2: #191340;
+    --cyan: #00f0ff;
+    --violet: #a259ff;
+    --green: #39ff14;
+    --chrome: #eef3ff;
+    --text: #cfe3f5;
+    --border-lt: rgba(255,255,255,0.35);
+    --border-dk: rgba(0,0,0,0.7);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    color: var(--text);
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(0,240,255,0.10), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(162,89,255,0.14), transparent 40%),
+      linear-gradient(155deg, var(--bg-a), var(--bg-b) 45%, var(--bg-c) 100%);
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  /* scanline + grid overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.06;
+    background-image: repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 3px);
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.10;
+    background-image:
+      linear-gradient(rgba(0,240,255,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,240,255,0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  a { color: var(--cyan); }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px dashed var(--cyan);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  }
+
+  /* ---------- marquee ---------- */
+  .marquee {
+    background: #000;
+    color: var(--green);
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 0;
+    border-bottom: 2px solid var(--cyan);
+    position: relative;
+    z-index: 2;
+  }
+  .marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 18s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ---------- masthead ---------- */
+  header.masthead {
+    text-align: center;
+    padding: 3.5rem 1rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  h1.title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: 0.04em;
+    background: linear-gradient(180deg, #ffffff 0%, var(--cyan) 55%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 14px rgba(0,240,255,0.45));
+  }
+  .tagline {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+    color: var(--cyan);
+    margin-top: 0.6rem;
+  }
+  .badge-construction {
+    display: inline-block;
+    margin-top: 1.1rem;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    background: repeating-linear-gradient(45deg, #ffe066, #ffe066 10px, #111 10px, #111 20px);
+    color: #111;
+    border: 2px solid #000;
+    animation: blink 1.4s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.4; } }
+
+  /* ---------- nav ---------- */
+  nav.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0 1rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  nav.tabs a {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--chrome);
+    background: linear-gradient(180deg, #2c2470, #120f2c);
+    border-top: 1px solid var(--border-lt);
+    border-left: 1px solid var(--border-lt);
+    border-right: 1px solid var(--border-dk);
+    border-bottom: 1px solid var(--border-dk);
+    padding: 8px 16px;
+    border-radius: 3px;
+  }
+  nav.tabs a:hover { background: linear-gradient(180deg, #3d2f9c, #1a1550); color: var(--cyan); }
+
+  /* ---------- layout ---------- */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  section.card {
+    background: var(--panel);
+    border-top: 1px solid var(--border-lt);
+    border-left: 1px solid var(--border-lt);
+    border-right: 1px solid var(--border-dk);
+    border-bottom: 1px solid var(--border-dk);
+    box-shadow: 0 0 24px rgba(0,240,255,0.08), 0 8px 20px rgba(0,0,0,0.5);
+    margin-bottom: 3rem;
+    scroll-margin-top: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #1c1550, #2f1e6e 60%, #123554);
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border-dk);
+  }
+  .titlebar .label {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: var(--chrome);
+  }
+  .titlebar .dots { display: flex; gap: 5px; }
+  .titlebar .dots span {
+    width: 9px; height: 9px; border-radius: 50%;
+    display: inline-block;
+    background: var(--violet);
+    box-shadow: 0 0 6px rgba(162,89,255,0.8);
+  }
+  .titlebar .dots span:nth-child(2) { background: var(--cyan); box-shadow: 0 0 6px rgba(0,240,255,0.8); }
+  .titlebar .dots span:nth-child(3) { background: var(--green); box-shadow: 0 0 6px rgba(57,255,20,0.8); }
+
+  .card-body { padding: 1.75rem; }
+
+  h2.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
+    margin: 0 0 1rem;
+    color: var(--chrome);
+    border-bottom: 2px solid var(--cyan);
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  /* about */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .photo-placeholder {
+    width: 140px;
+    height: 140px;
+    background: repeating-linear-gradient(135deg, #1c1550, #1c1550 8px, #0e0a28 8px, #0e0a28 16px);
+    border: 1px solid var(--border-lt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+    color: var(--cyan);
+    text-align: center;
+    padding: 0.5rem;
+  }
+  @media (max-width: 480px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .photo-placeholder { margin: 0 auto; }
+  }
+  .location-line { font-family: 'VT323', monospace; color: var(--green); font-size: 1.1rem; margin-top: 0.5rem; }
+
+  /* skills stickers */
+  .sticker-sheet { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .sticker {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-lt);
+    background: linear-gradient(180deg, #241c5c, #150f38);
+    color: var(--chrome);
+  }
+  .sticker.done { background: linear-gradient(180deg, #1f5c2a, #0e2b14); color: var(--green); border-color: rgba(57,255,20,0.5); }
+  .sticker.progress { background: linear-gradient(180deg, #145a63, #0a2d33); color: var(--cyan); border-color: rgba(0,240,255,0.5); }
+  .sticker-key { font-family: 'VT323', monospace; font-size: 0.95rem; margin-top: 0.85rem; opacity: 0.75; }
+
+  /* projects */
+  .index-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-lt);
+    border-left: 3px solid var(--cyan);
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+  }
+  .index-card:last-child { margin-bottom: 0; }
+  .index-card h3 {
+    margin: 0 0 0.4rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.05rem;
+    color: var(--chrome);
+  }
+  .todo-note { font-family: 'VT323', monospace; color: var(--cyan); font-size: 1.15rem; }
+
+  /* guestbook */
+  .guestbook-form { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+  .guestbook-form input, .guestbook-form textarea {
+    font-family: 'Space Mono', monospace;
+    background: #050313;
+    color: var(--green);
+    border: 1px solid var(--border-lt);
+    padding: 0.55rem;
+    font-size: 0.95rem;
+    border-radius: 3px;
+  }
+  .guestbook-form input::placeholder, .guestbook-form textarea::placeholder { color: rgba(57,255,20,0.4); }
+  .stamp-btn {
+    align-self: flex-start;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #00c2d1, #0a5a63);
+    color: #01131a;
+    border: 1px solid var(--border-lt);
+    padding: 8px 18px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .stamp-btn:hover { background: linear-gradient(180deg, #00f0ff, #0a5a63); }
+  .stamp-btn:active { filter: brightness(0.85); }
+
+  .guestbook-entries { display: flex; flex-direction: column; gap: 0.75rem; }
+  .entry {
+    border: 1px solid var(--border-lt);
+    border-left: 3px solid var(--violet);
+    padding: 0.6rem 0.8rem;
+    background: rgba(255,255,255,0.02);
+    font-size: 0.9rem;
+    border-radius: 3px;
+  }
+  .entry .name { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--cyan); letter-spacing: 0.03em; }
+  .entry .msg-time { opacity: 0.55; font-size: 0.75rem; font-family: 'Space Mono', monospace; }
+  .storage-note { font-family: 'Space Mono', monospace; font-size: 0.75rem; opacity: 0.6; margin-top: 0.75rem; }
+
+  /* odometer */
+  .counter-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .odometer {
+    display: flex;
+    gap: 3px;
+    background: #000;
+    padding: 8px 10px;
+    border: 1px solid var(--border-lt);
+    border-radius: 3px;
+  }
+  .odometer .digit {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    background: #050505;
+    color: var(--green);
+    text-shadow: 0 0 8px rgba(57,255,20,0.7);
+    width: 1.1em;
+    text-align: center;
+    padding: 2px 0;
+  }
+  .counter-label { font-family: 'VT323', monospace; font-size: 1.15rem; color: var(--chrome); }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    color: var(--text);
+    opacity: 0.8;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-badges { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .footer-badges span {
+    border: 1px solid var(--border-lt);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee"><span>welcome to my page !!! &nbsp; est. 2026 &nbsp; &mdash; &nbsp; thanks for stopping by, sign the guestbook before you go &nbsp; &mdash; &nbsp; best viewed with an open mind &nbsp; &mdash; &nbsp; </span></div>
+
+<header class="masthead">
+  <h1 class="title">ELIJAH<br>WHERRINGTON</h1>
+  <p class="tagline">&gt; marketing ops &amp; revops _ making tech behave</p>
+  <div class="badge-construction">⚠ under construction ⚠</div>
+</header>
+
+<nav class="tabs">
+  <a href="#about">about</a>
+  <a href="#skills">skills</a>
+  <a href="#projects">projects</a>
+  <a href="#guestbook">guestbook</a>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section class="card" id="about">
+    <div class="titlebar"><span class="label">ABOUT.EXE</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">about me</h2>
+      <div class="about-grid">
+        <div class="photo-placeholder">[ photo ]</div>
+        <div>
+          <p><!-- TODO: replace with real bio copy --> Hi, I'm Elijah. I work in Marketing Operations &amp; RevOps at Walker Sands, a B2B marketing and PR agency working with fintech and cybersecurity clients. I live in the systems most people never see &mdash; HubSpot, Salesforce, Marketo, Eloqua &mdash; making sure leads go where they're supposed to and reports don't lie.</p>
+          <p class="location-line">&gt; location: Omaha, NE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="card" id="skills">
+    <div class="titlebar"><span class="label">SKILLS.SYS</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">skills &amp; certs</h2>
+      <div class="sticker-sheet">
+        <span class="sticker">HubSpot</span>
+        <span class="sticker">Salesforce</span>
+        <span class="sticker">Marketo</span>
+        <span class="sticker">Eloqua</span>
+        <span class="sticker progress">HubSpot Marketing Hub Cert &mdash; in progress</span>
+        <span class="sticker progress">GA4 Cert &mdash; in progress</span>
+        <span class="sticker done">HubSpot RevOps Cert</span>
+      </div>
+      <p class="sticker-key">green = earned &nbsp;&nbsp; cyan = in progress</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="card" id="projects">
+    <div class="titlebar"><span class="label">PROJECTS</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">projects</h2>
+      <div class="index-card">
+        <h3>[ project title ]</h3>
+        <p class="todo-note">&gt; tell me what you built here and I'll write this one up</p>
+      </div>
+      <div class="index-card">
+        <h3>[ project title ]</h3>
+        <p class="todo-note">&gt; same here &mdash; a RevOps tool, a workflow, a migration, whatever you're proud of</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUESTBOOK -->
+  <section class="card" id="guestbook">
+    <div class="titlebar"><span class="label">GUESTBOOK.EXE</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">sign my guestbook</h2>
+      <form class="guestbook-form" id="guestbook-form">
+        <input type="text" id="gb-name" placeholder="your name" maxlength="40" required>
+        <textarea id="gb-message" placeholder="leave a note..." rows="3" maxlength="280" required></textarea>
+        <button type="submit" class="stamp-btn">sign it</button>
+      </form>
+      <div class="guestbook-entries" id="guestbook-entries">
+        <p id="gb-loading" class="storage-note">loading entries...</p>
+      </div>
+      <p class="storage-note" id="gb-note"></p>
+    </div>
+  </section>
+
+  <!-- VISITOR COUNTER -->
+  <section class="card">
+    <div class="titlebar"><span class="label">COUNTER.DLL</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="card-body">
+      <h2 class="section-title">visitor count</h2>
+      <div class="counter-wrap">
+        <span class="counter-label">you are visitor #</span>
+        <div class="odometer" id="odometer">
+          <span class="digit">0</span><span class="digit">0</span><span class="digit">0</span><span class="digit">0</span><span class="digit">0</span><span class="digit">1</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>&copy; 2026 elijah wherrington &mdash; made by hand, mostly</div>
+  <div class="footer-badges">
+    <span>best viewed at any resolution, honestly</span>
+    <span><a href="#about">back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var GB_KEY = "guestbook-entries";
+  var COUNTER_KEY = "visitor-count";
+  var hasStorage = typeof window.storage !== "undefined" && window.storage;
+
+  // in-memory fallback so the demo still works if window.storage isn't present
+  var memoryEntries = [];
+  var memoryCount = 1;
+
+  function escapeHtml(str) {
+    var div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderEntries(entries) {
+    var wrap = document.getElementById("guestbook-entries");
+    if (!entries.length) {
+      wrap.innerHTML = '<p class="storage-note">no entries yet &mdash; be the first!</p>';
+      return;
+    }
+    wrap.innerHTML = entries.slice().reverse().map(function (e) {
+      var when = new Date(e.timestamp).toLocaleString();
+      return '<div class="entry"><div class="name">' + escapeHtml(e.name) + '</div>' +
+             '<div>' + escapeHtml(e.message) + '</div>' +
+             '<div class="msg-time">' + when + '</div></div>';
+    }).join("");
+  }
+
+  function loadEntries() {
+    if (!hasStorage) {
+      renderEntries(memoryEntries);
+      document.getElementById("gb-note").textContent =
+        "running in demo mode \u2014 entries won't persist until this is wired to a real backend.";
+      return;
+    }
+    window.storage.get(GB_KEY, true).then(function (res) {
+      var entries = res ? JSON.parse(res.value) : [];
+      renderEntries(entries);
+    }).catch(function () {
+      renderEntries([]);
+    });
+  }
+
+  function addEntry(name, message) {
+    var entry = { name: name, message: message, timestamp: Date.now() };
+    if (!hasStorage) {
+      memoryEntries.push(entry);
+      renderEntries(memoryEntries);
+      return;
+    }
+    window.storage.get(GB_KEY, true).then(function (res) {
+      var entries = res ? JSON.parse(res.value) : [];
+      entries.push(entry);
+      return window.storage.set(GB_KEY, JSON.stringify(entries), true);
+    }).catch(function () {
+      return window.storage.set(GB_KEY, JSON.stringify([entry]), true);
+    }).then(function () {
+      loadEntries();
+    }).catch(function (err) {
+      console.error("guestbook save failed", err);
+    });
+  }
+
+  document.getElementById("guestbook-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("gb-name").value.trim();
+    var message = document.getElementById("gb-message").value.trim();
+    if (!name || !message) return;
+    addEntry(name, message);
+    this.reset();
+  });
+
+  loadEntries();
+
+  function setOdometer(n) {
+    var digits = String(n).padStart(6, "0").split("");
+    var els = document.querySelectorAll("#odometer .digit");
+    digits.forEach(function (d, i) { if (els[i]) els[i].textContent = d; });
+  }
+
+  if (!hasStorage) {
+    setOdometer(memoryCount);
+  } else {
+    window.storage.get(COUNTER_KEY, true).then(function (res) {
+      var count = res ? parseInt(res.value, 10) : 0;
+      count += 1;
+      setOdometer(count);
+      return window.storage.set(COUNTER_KEY, String(count), true);
+    }).catch(function () {
+      window.storage.set(COUNTER_KEY, "1", true).catch(function () {});
+      setOdometer(1);
+    });
+  }
+})();
+</script>
+
+</body>
 </html>
