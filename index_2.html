@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elijah Herrington</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #121316;
+    --bg-alt: #1B1D22;
+    --ink: #F5F3EE;
+    --muted: #8B8E96;
+    --red: #FF2E3D;
+    --red-deep: #7A1620;
+    --line: #2C2E34;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    text-align: right;
+  }
+
+  /* marquee */
+  .marquee {
+    background: #000;
+    color: var(--red);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--red-deep);
+    text-align: left;
+  }
+  .marquee span { display: inline-block; padding-left: 100%; animation: marquee 18s linear infinite; }
+  @keyframes marquee { 100% { transform: translateX(-100%); } }
+
+  /* hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    padding: 3rem 2rem 2rem;
+    align-items: end;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) { .hero { grid-template-columns: 1fr; } }
+  .hero-photo {
+    aspect-ratio: 3/4;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .hero-text { text-align: right; }
+  h1.name {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 7vw, 4.6rem);
+    line-height: 0.98;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  h1.name .cursor { display: inline-block; color: var(--red); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .tagline { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: var(--muted); margin-top: 1rem; }
+  .tagline .hl { color: var(--red); }
+
+  nav.tabs { display: flex; justify-content: flex-end; align-items: stretch; gap: 0; flex-wrap: nowrap; margin-top: 2rem; border-top: 1px solid var(--line); }
+  nav.tabs a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 14px 16px;
+    border-left: 1px solid var(--line);
+  }
+  nav.tabs a:hover { background: var(--bg-alt); color: var(--red); }
+  nav.tabs a.cta {
+    background: var(--red);
+    color: #1A0507;
+    font-weight: 700;
+    border-left: 1px solid var(--red);
+  }
+  nav.tabs a.cta:hover { background: #ff4654; color: #1A0507; }
+
+  /* intro / header section (was 03/type demo, now real copy) */
+  .intro {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .intro .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin: 0 0 1rem;
+  }
+  .intro p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    max-width: 620px;
+    margin: 0 0 0 auto;
+  }
+  .intro p .accent { color: var(--red); }
+
+  /* module carousel grid */
+  .modules { max-width: 980px; margin: 0 auto; padding: 3rem 2rem; }
+  .module-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 640px) { .module-grid { grid-template-columns: 1fr; } }
+  .module { border: 1px solid var(--line); background: var(--bg-alt); }
+  .titlebar { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 8px 14px; }
+  .titlebar .dots { display: flex; gap: 5px; }
+  .titlebar .dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--line); display: inline-block; }
+  .titlebar .dots span:last-child { background: var(--red); }
+  .titlebar .filename { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.06em; color: var(--red); }
+
+  .carousel { position: relative; }
+  .carousel-track { display: flex; overflow: hidden; }
+  .carousel-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 16/10;
+    background: #14161A;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .carousel-dots { display: flex; justify-content: center; gap: 6px; padding: 10px 0; background: var(--bg-alt); }
+  .carousel-dots span { width: 5px; height: 5px; border-radius: 50%; background: var(--line); display: inline-block; }
+  .carousel-dots span:first-child { background: var(--red); }
+  .carousel-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.5); color: var(--ink);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+  }
+  .carousel-arrow.prev { left: 10px; }
+  .carousel-arrow.next { right: 10px; }
+
+  .module-body { padding: 1.25rem 1.5rem; text-align: right; }
+  .module-body h3 { font-family: 'Unbounded', sans-serif; font-size: 1.15rem; margin: 0 0 0.4rem; font-weight: 500; }
+  .module-body p { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; }
+  .module-body .view-link { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); text-decoration: none; }
+  .module.wide { grid-column: 1 / -1; }
+
+  /* odometer / footer */
+  .counter-section { max-width: 980px; margin: 0 auto; padding: 2.5rem 2rem 4rem; border-top: 1px solid var(--line); }
+  .counter-wrap { display: flex; align-items: center; justify-content: flex-end; gap: 0.75rem; }
+  .odometer { display: flex; gap: 3px; background: #000; padding: 10px 12px; border: 1px solid var(--red-deep); }
+  .odometer .digit { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.6rem; color: var(--red); width: 1em; text-align: center; }
+  .counter-label { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="marquee"><span>elijah herrington &mdash; revops &amp; martech &mdash; chicago, il &mdash; </span></div>
+
+<section class="hero">
+  <div class="hero-photo">photo of<br>elijah</div>
+  <div class="hero-text">
+    <h1 class="name">ELIJAH<br>HERRINGTON<span class="cursor">_</span></h1>
+    <p class="tagline">&gt; revops &amp; martech <span class="hl">// many disciplines, one system</span></p>
+    <nav class="tabs">
+      <a href="#">about</a>
+      <a href="#">skills &amp; experience</a>
+      <a href="#">my approach</a>
+      <a href="#">projects</a>
+      <a href="#">travel</a>
+      <a href="#" class="cta">contact me</a>
+    </nav>
+  </div>
+</section>
+
+<section class="intro">
+  <p class="kicker">01 / intro</p>
+  <p>I build the systems that connect what marketing does to what it actually earns &mdash; and I got here by way of writing, editorial work, and a genuine curiosity about <span class="accent">how disparate disciplines fit together.</span></p>
+</section>
+
+<section class="modules">
+  <div class="module-grid">
+
+    <div class="module">
+      <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span><span class="filename">ABOUT.EXE</span></div>
+      <div class="carousel">
+        <div class="carousel-track"><div class="carousel-slide">photo 1 of 3</div></div>
+        <span class="carousel-arrow prev">&lsaquo;</span>
+        <span class="carousel-arrow next">&rsaquo;</span>
+      </div>
+      <div class="carousel-dots"><span></span><span></span><span></span></div>
+      <div class="module-body">
+        <h3>about</h3>
+        <p>chicago-based, revops &amp; martech, formerly an english major</p>
+        <a class="view-link" href="#">view full page &rarr;</a>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span><span class="filename">SKILLS.SYS</span></div>
+      <div class="carousel">
+        <div class="carousel-track"><div class="carousel-slide">cert badge 1 of 3</div></div>
+        <span class="carousel-arrow prev">&lsaquo;</span>
+        <span class="carousel-arrow next">&rsaquo;</span>
+      </div>
+      <div class="carousel-dots"><span></span><span></span><span></span></div>
+      <div class="module-body">
+        <h3>skills &amp; experience</h3>
+        <p>hubspot, salesforce, marketo, eloqua</p>
+        <a class="view-link" href="#">view full page &rarr;</a>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span><span class="filename">APPROACH.LOG</span></div>
+      <div class="carousel">
+        <div class="carousel-track"><div class="carousel-slide">diagram 1 of 2</div></div>
+        <span class="carousel-arrow prev">&lsaquo;</span>
+        <span class="carousel-arrow next">&rsaquo;</span>
+      </div>
+      <div class="carousel-dots"><span></span><span></span></div>
+      <div class="module-body">
+        <h3>my approach</h3>
+        <p>how i think about attribution, systems, and tooling</p>
+        <a class="view-link" href="#">view full page &rarr;</a>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span><span class="filename">PROJECTS.MAP</span></div>
+      <div class="carousel">
+        <div class="carousel-track"><div class="carousel-slide">screenshot 1 of 4</div></div>
+        <span class="carousel-arrow prev">&lsaquo;</span>
+        <span class="carousel-arrow next">&rsaquo;</span>
+      </div>
+      <div class="carousel-dots"><span></span><span></span><span></span><span></span></div>
+      <div class="module-body">
+        <h3>projects</h3>
+        <p>revops tooling, attribution builds, this site</p>
+        <a class="view-link" href="#">view full page &rarr;</a>
+      </div>
+    </div>
+
+    <div class="module wide">
+      <div class="titlebar"><span class="dots"><span></span><span></span><span></span></span><span class="filename">TRAVEL.MAP</span></div>
+      <div class="carousel">
+        <div class="carousel-track"><div class="carousel-slide">travel photo 1 of 6</div></div>
+        <span class="carousel-arrow prev">&lsaquo;</span>
+        <span class="carousel-arrow next">&rsaquo;</span>
+      </div>
+      <div class="carousel-dots"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="module-body">
+        <h3>travel</h3>
+        <p>places visited, photos, notes from each trip</p>
+        <a class="view-link" href="#">view full page &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="counter-section">
+  <div class="counter-wrap">
+    <div class="odometer">
+      <span class="digit">0</span><span class="digit">0</span><span class="digit">0</span><span class="digit">0</span><span class="digit">4</span><span class="digit">7</span>
+    </div>
+    <span class="counter-label">visitor #</span>
+  </div>
+</section>
+
+</body>
+</html>
