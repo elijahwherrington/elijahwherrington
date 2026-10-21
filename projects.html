@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Projects · Elijah Herrington</title>
+<meta name="description" content="Case studies: Snowflake + MCP analytics agents, a CRM application build at Signal, and multi-platform attribution.">
+<meta property="og:title" content="Projects · Elijah Herrington">
+<meta property="og:description" content="Case studies: Snowflake + MCP analytics agents, a CRM application build at Signal, and multi-platform attribution.">
+<meta property="og:image" content="https://elijahwherrington.com/img/hero-staircase.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#111215">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ff2e3d'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%231a0507'%3EEH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Elijah Herrington, home"><span class="mark">EH</span><span>elijah herrington</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="skills.html">Skills & Experience</a><a href="projects.html" aria-current="page">Projects</a><a class="cta" href="#contact">Contact Me</a>
+    </nav>
+  </div>
+</header>
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>revops & martech</span><span>hubspot</span><span>salesforce</span><span>marketo</span><span>eloqua</span><span>snowflake + mcp</span><span>attribution</span><span>google tag manager</span><span>ga4</span><span>6sense</span><span>clay</span><span>chicago, il</span><span>many disciplines, one system</span><span>revops & martech</span><span>hubspot</span><span>salesforce</span><span>marketo</span><span>eloqua</span><span>snowflake + mcp</span><span>attribution</span><span>google tag manager</span><span>ga4</span><span>6sense</span><span>clay</span><span>chicago, il</span><span>many disciplines, one system</span></div></div>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <span class="label rise">projects.map <span class="r">//</span> case studies</span>
+    <h1 class="rise d1">Projects<span class="cur">_</span></h1>
+    <p class="lede rise d2">Three builds, told straight: what was broken, what I built, and what it meant for the business. Client names stay private. The work doesn't.</p>
+    <nav class="proj-index rise d3" aria-label="Projects on this page">
+      <a href="#ai-agents"><span class="n">CASE 01</span><span class="t">AI analytics agents on Snowflake + MCP</span></a>
+      <a href="#signal-app"><span class="n">CASE 02</span><span class="t">A CRM application at Signal</span></a>
+      <a href="#attribution"><span class="n">CASE 03</span><span class="t">Multi-platform attribution &amp; tracking</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- CASE 01 -->
+<article class="case" id="ai-agents">
+  <div class="wrap">
+    <header class="case-head">
+      <span class="case-num" aria-hidden="true">01</span>
+      <div class="case-title">
+        <span class="label">walker sands <span class="r">//</span> 2025 – now <span class="r">//</span> the one i'm proudest of</span>
+        <h2>AI that answers the questions before you ask them</h2>
+        <div class="chips"><span class="chip hot">Snowflake</span><span class="chip hot">MCP</span><span class="chip">Claude</span><span class="chip">APIs</span><span class="chip">SQL</span><span class="chip">HubSpot</span><span class="chip">Salesforce</span></div>
+      </div>
+    </header>
+    <div class="case-grid">
+      <div class="prose">
+        <div class="case-block"><span class="label">the problem</span>
+          <p>Every client's data lived in a different mix of CRMs, marketing automation, and ad platforms. A simple question like "which programs drove pipeline this quarter?" meant an analyst pulling exports by hand. Same questions, every month, for every client. Slow for leadership, expensive for us.</p></div>
+        <div class="case-block"><span class="label">what i built</span>
+          <p>I pulled client data into <strong>Snowflake</strong> and normalized it into one consistent model. Then I connected that warehouse to AI through <strong>MCP</strong>, so anyone can ask it a question in plain English.</p>
+          <p>Two kinds of agents run on top. <strong>Analysis agents</strong> answer each client's recurring business questions and write the summary. <strong>Monitoring agents</strong> catch RevOps gaps, like blank required fields or stalled deals, and send each one to the person who can fix it.</p></div>
+        <div class="case-block"><span class="label">the payoff</span>
+          <p>Leadership gets answers on request instead of waiting on a report. Analysts get 340 hours back every quarter, and the agents handle thousands more. Data problems get flagged before they show up in a forecast.</p></div>
+      </div>
+      <aside class="impact panel">
+        <div class="row"><span class="big"><em>23</em></span><span class="label">clients live</span></div>
+        <div class="row"><span class="big">340</span><span class="label">analyst hours handed back every quarter</span></div>
+        <div class="row"><span class="big">1,000s</span><span class="label">hours of work the agents run each quarter</span></div>
+        <div class="row"><p>The real lesson: AI is only as good as the data model under it. Most of the work was making the data trustworthy first.</p></div>
+      </aside>
+    </div>
+
+    <figure class="diagram diagram-d1">
+      <div class="diagram-head"><strong>AI analytics data model</strong><span>Fig. 1 · Snowflake model + AI layer · illustrative, field names simplified</span></div>
+      <a class="diagram-body" href="img/diagrams/d1.svg" target="_blank" rel="noopener" title="Open full size"><img src="img/diagrams/d1.svg" alt="Architecture diagram: client source systems feed Snowflake through API connectors. Raw data is normalized into an analytics model of account, contact, campaign, touchpoint and opportunity tables. An MCP server exposes the model to analysis agents and monitoring agents, which deliver summaries, answers and alerts to clients." loading="lazy"></a>
+      <div class="diagram-foot"><a href="img/diagrams/d1.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
+    </figure>
+  </div>
+</article>
+
+<!-- CASE 02 -->
+<article class="case" id="signal-app">
+  <div class="wrap">
+    <header class="case-head">
+      <span class="case-num" aria-hidden="true">02</span>
+      <div class="case-title">
+        <span class="label">signal <span class="r">//</span> technical project manager</span>
+        <h2>The bridge between marketing and the dev team</h2>
+        <div class="chips"><span class="chip hot">Technical PM</span><span class="chip">CRM</span><span class="chip">Requirements</span><span class="chip">Marketing ↔ Dev</span></div>
+      </div>
+    </header>
+    <div class="case-grid">
+      <div class="prose">
+        <div class="case-block"><span class="label">the setup</span>
+          <p>Signal was scaling fast. The franchise network went from about 150 to more than 200 locations, and revenue from $200M to $350M. The business needed an application built on top of its CRM: a reskinned, purpose-built version of it.</p></div>
+        <div class="case-block"><span class="label">my role</span>
+          <p>I was the technical project manager in the middle. Marketing knew what it needed. The developers needed that as something they could build. I translated both ways: marketing requirements into technical specs, and technical constraints back into decisions marketing could actually make.</p></div>
+        <div class="case-block"><span class="label">the payoff</span>
+          <p>Most revenue problems are translation problems. This is where I learned to sit in the middle of a build and keep both sides moving in the same direction.</p></div>
+      </div>
+      <aside class="impact panel">
+        <div class="row"><span class="big">$200M<em>→</em><br>$350M</span><span class="label">company growth during my time at signal</span></div>
+        <div class="row"><span class="big"><em>200+</em></span><span class="label">franchise locations</span></div>
+        
+      </aside>
+    </div>
+
+    <figure class="diagram diagram-d2">
+      <div class="diagram-head"><strong>Project workflow</strong><span>Fig. 2 · how requirements moved through the build</span></div>
+      <a class="diagram-body" href="img/diagrams/d2.svg" target="_blank" rel="noopener" title="Open full size"><img src="img/diagrams/d2.svg" alt="Sequence diagram: marketing sends goals and requirements to the technical PM, who sends technical specs to the dev team. The dev team returns constraints, the PM turns them into options for marketing, marketing decides, the PM sends the final spec, and the dev team builds the reskinned interface on the company CRM." loading="lazy"></a>
+      <div class="diagram-foot"><a href="img/diagrams/d2.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
+    </figure>
+  </div>
+</article>
+
+<!-- CASE 03 -->
+<article class="case" id="attribution">
+  <div class="wrap">
+    <header class="case-head">
+      <span class="case-num" aria-hidden="true">03</span>
+      <div class="case-title">
+        <span class="label">walker sands <span class="r">//</span> ongoing, every client</span>
+        <h2>Marketing spend that ties back to revenue</h2>
+        <div class="chips"><span class="chip hot">HubSpot ↔ Salesforce</span><span class="chip hot">Google Tag Manager</span><span class="chip">Account Engagement</span><span class="chip">Eloqua</span><span class="chip">GA4</span><span class="chip">JavaScript</span><span class="chip">6sense</span><span class="chip">ZoomInfo</span></div>
+      </div>
+    </header>
+    <div class="case-grid">
+      <div class="prose">
+        <div class="case-block"><span class="label">the problem</span>
+          <p>A B2B deal touches a dozen channels and at least two platforms. A lead fills out a form tracked in one tool, gets nurtured in another, and closes in a CRM with no idea where it came from. Without stitching that together, marketing can't prove what it earns, and finance stops believing the dashboard.</p></div>
+        <div class="case-block"><span class="label">what i build</span>
+          <p><strong>The tracking layer.</strong> About half my work happens on the website: custom builds in Google Tag Manager and Adobe tags, scripts that keep UTM data alive across sessions, enrichment, and hunting down the broken forms and 404s that quietly leak leads.</p>
+          <p><strong>The integrations.</strong> I connect the platforms so nothing gets lost in the handoff, most often HubSpot ↔ Salesforce, Account Engagement ↔ HubSpot, and Eloqua ↔ Salesforce.</p>
+          <p><strong>The model.</strong> For multibillion-dollar clients, I combine all of it into full attribution reporting, then build ROI forecasts program by program. Several honest metrics beat one number that tries to explain everything.</p></div>
+        <div class="case-block"><span class="label">the payoff</span>
+          <p>A straight line from campaign to closed-won, so budget conversations start from numbers everyone trusts. My rule: bad data in, bad data out. I start at the form field.</p></div>
+      </div>
+      <aside class="impact panel">
+        <div class="row"><span class="big"><em>$B+</em></span><span class="label">size of the companies i build attribution for</span></div>
+        <div class="row"><span class="big">4</span><span class="label">automation platforms connected</span></div>
+        <div class="row"><p>Program-level ROI forecasting for any client that asks, not just the biggest ones.</p></div>
+      </aside>
+    </div>
+
+    <figure class="diagram diagram-d3">
+      <div class="diagram-head"><strong>Attribution data model</strong><span>Fig. 3 · website to revenue · illustrative, field names simplified</span></div>
+      <a class="diagram-body" href="img/diagrams/d3.svg" target="_blank" rel="noopener" title="Open full size"><img src="img/diagrams/d3.svg" alt="Data model: web sessions and form submissions with persisted UTMs sync into CRM contacts. Contacts, accounts, campaigns and opportunities feed an attribution model of touchpoints and revenue credit, enriched with 6sense and ZoomInfo intent data, which powers pipeline by program, program ROI and forecasts." loading="lazy"></a>
+      <div class="diagram-foot"><a href="img/diagrams/d3.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
+    </figure>
+  </div>
+</article>
+
+<section class="section">
+  <div class="wrap" style="display:grid;gap:1.4rem;justify-items:end;text-align:right">
+    <span class="label">next.sh</span>
+    <h2>Want the long version?</h2>
+    <p style="color:var(--muted);max-width:50ch">Happy to walk through any of these builds in detail, diagrams and all.</p>
+    <div class="hero-actions"><a class="btn red" href="#contact">Let's talk <svg class="lucide lucide-arrow-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a><a class="btn" href="skills.html">Skills &amp; experience</a></div>
+  </div>
+</section>
+
+</main>
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-top">
+      <span class="label">contact.sys <span class="r">//</span> open to revops, marketing ops &amp; analytics roles</span>
+      <h2>Let's connect the <span class="r">systems.</span></h2>
+      <p style="max-width:50ch;color:#cfcdc8;font-size:1.1rem">Building out a revenue team, or tired of numbers nobody trusts? I'd like to hear about it.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <span class="label"><svg class="lucide lucide-mail" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /> </svg>email</span>
+        <span class="val" id="email-val">elijahwherrington@gmail.com</span>
+        <div class="row">
+          <button class="mini" type="button" data-copy="elijahwherrington@gmail.com" data-target="email-val"><svg class="lucide lucide-copy" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg>Copy</button>
+          <a class="mini" href="mailto:elijahwherrington@gmail.com"><svg class="lucide lucide-send" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /> <path d="m21.854 2.147-10.94 10.939" /> </svg>Email me</a>
+        </div>
+      </div>
+      <div class="contact-cell">
+        <span class="label"><svg class="lucide lucide-linkedin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /> <rect width="4" height="12" x="2" y="9" /> <circle cx="4" cy="4" r="2" /> </svg>linkedin</span>
+        <span class="val">in/elijah-herrington</span>
+        <div class="row"><a class="mini" href="https://www.linkedin.com/in/elijah-herrington-657a081b9/" target="_blank" rel="noopener"><svg class="lucide lucide-linkedin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /> <rect width="4" height="12" x="2" y="9" /> <circle cx="4" cy="4" r="2" /> </svg>Connect on LinkedIn</a></div>
+      </div>
+      <div class="contact-cell">
+        <span class="label"><svg class="lucide lucide-map-pin" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /> </svg>based in</span>
+        <span class="val">Chicago, IL <span style="color:var(--muted)">· works from anywhere</span></span>
+        <div class="row"><span class="mini" aria-disabled="true" style="opacity:.55;cursor:default"><svg class="lucide lucide-file-text" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg>Resume · coming soon</span></div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span class="label">© <span id="yr">2026</span> elijah herrington <span class="r">//</span> built by hand, hosted on github pages</span>
+      <span class="label" style="display:inline-flex;gap:.6rem;align-items:center">visitor # <span class="odometer" aria-label="visitor counter"><span>0</span><span>0</span><span>0</span><span>0</span><span>4</span><span>7</span></span></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
