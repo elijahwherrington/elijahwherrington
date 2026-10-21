@@ -7,14 +7,14 @@
 <meta name="description" content="Case studies: Snowflake + MCP analytics agents, a CRM application build at Signal, and multi-platform attribution.">
 <meta property="og:title" content="Projects · Elijah Herrington">
 <meta property="og:description" content="Case studies: Snowflake + MCP analytics agents, a CRM application build at Signal, and multi-platform attribution.">
-<meta property="og:image" content="https://elijahwherrington.com/img/hero-staircase.jpg">
+<meta property="og:image" content="https://elijahwherrington.com/hero-staircase.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#111215">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ff2e3d'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%231a0507'%3EEH%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
@@ -72,8 +72,8 @@
 
     <figure class="diagram diagram-d1">
       <div class="diagram-head"><strong>AI analytics data model</strong><span>Fig. 1 · Snowflake model + AI layer · illustrative, field names simplified</span></div>
-      <a class="diagram-body" href="img/diagrams/d1.svg" target="_blank" rel="noopener" title="Open full size"><img src="img/diagrams/d1.svg" alt="Architecture diagram: client source systems feed Snowflake through API connectors. Raw data is normalized into an analytics model of account, contact, campaign, touchpoint and opportunity tables. An MCP server exposes the model to analysis agents and monitoring agents, which deliver summaries, answers and alerts to clients." loading="lazy"></a>
-      <div class="diagram-foot"><a href="img/diagrams/d1.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
+      <a class="diagram-body" href="d1.svg" target="_blank" rel="noopener" title="Open full size"><img src="d1.svg" alt="Architecture diagram: client source systems feed Snowflake through API connectors. Raw data is normalized into an analytics model of account, contact, campaign, touchpoint and opportunity tables. An MCP server exposes the model to analysis agents and monitoring agents, which deliver summaries, answers and alerts to clients." loading="lazy"></a>
+      <div class="diagram-foot"><a href="d1.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
     </figure>
   </div>
 </article>
@@ -107,8 +107,8 @@
 
     <figure class="diagram diagram-d2">
       <div class="diagram-head"><strong>Project workflow</strong><span>Fig. 2 · how requirements moved through the build</span></div>
-      <a class="diagram-body" href="img/diagrams/d2.svg" target="_blank" rel="noopener" title="Open full size"><img src="img/diagrams/d2.svg" alt="Sequence diagram: marketing sends goals and requirements to the technical PM, who sends technical specs to the dev team. The dev team returns constraints, the PM turns them into options for marketing, marketing decides, the PM sends the final spec, and the dev team builds the reskinned interface on the company CRM." loading="lazy"></a>
-      <div class="diagram-foot"><a href="img/diagrams/d2.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
+      <a class="diagram-body" href="d2.svg" target="_blank" rel="noopener" title="Open full size"><img src="d2.svg" alt="Sequence diagram: marketing sends goals and requirements to the technical PM, who sends technical specs to the dev team. The dev team returns constraints, the PM turns them into options for marketing, marketing decides, the PM sends the final spec, and the dev team builds the reskinned interface on the company CRM." loading="lazy"></a>
+      <div class="diagram-foot"><a href="d2.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
     </figure>
   </div>
 </article>
@@ -144,8 +144,8 @@
 
     <figure class="diagram diagram-d3">
       <div class="diagram-head"><strong>Attribution data model</strong><span>Fig. 3 · website to revenue · illustrative, field names simplified</span></div>
-      <a class="diagram-body" href="img/diagrams/d3.svg" target="_blank" rel="noopener" title="Open full size"><img src="img/diagrams/d3.svg" alt="Data model: web sessions and form submissions with persisted UTMs sync into CRM contacts. Contacts, accounts, campaigns and opportunities feed an attribution model of touchpoints and revenue credit, enriched with 6sense and ZoomInfo intent data, which powers pipeline by program, program ROI and forecasts." loading="lazy"></a>
-      <div class="diagram-foot"><a href="img/diagrams/d3.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
+      <a class="diagram-body" href="d3.svg" target="_blank" rel="noopener" title="Open full size"><img src="d3.svg" alt="Data model: web sessions and form submissions with persisted UTMs sync into CRM contacts. Contacts, accounts, campaigns and opportunities feed an attribution model of touchpoints and revenue credit, enriched with 6sense and ZoomInfo intent data, which powers pipeline by program, program ROI and forecasts." loading="lazy"></a>
+      <div class="diagram-foot"><a href="d3.svg" target="_blank" rel="noopener">Open full size <svg class="lucide lucide-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a></div>
     </figure>
   </div>
 </article>
@@ -193,6 +193,6 @@
     </div>
   </div>
 </footer>
-<script src="assets/site.js"></script>
+<script src="site.js"></script>
 </body>
 </html>
